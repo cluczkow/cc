@@ -28,7 +28,8 @@ A simple Next.js web app that displays what you're currently listening to on Spo
 6. Click "Settings" on your new app
 7. Note your **Client ID** and **Client Secret**
 8. Click "Edit Settings"
-9. Under "Redirect URIs", add: `http://localhost:3000/api/auth/callback`
+9. Under "Redirect URIs", add: `http://127.0.0.1:3000/api/auth/callback`
+   - **Important:** Use `127.0.0.1` instead of `localhost` (required as of April 2025)
 10. Click "Add" and then "Save"
 
 ### 2. Configure Environment Variables
@@ -42,7 +43,7 @@ A simple Next.js web app that displays what you're currently listening to on Spo
    ```
    SPOTIFY_CLIENT_ID=your_client_id_here
    SPOTIFY_CLIENT_SECRET=your_client_secret_here
-   SPOTIFY_REDIRECT_URI=http://localhost:3000/api/auth/callback
+   SPOTIFY_REDIRECT_URI=http://127.0.0.1:3000/api/auth/callback
    ```
 
 ### 3. Install Dependencies
@@ -57,7 +58,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in your browser (you can also use localhost:3000).
 
 ## Usage
 
@@ -101,6 +102,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Notes
 
+- **Spotify Redirect URI Requirement:** As of April 2025, Spotify requires using `127.0.0.1` instead of `localhost` for redirect URIs in local development
 - Tokens are stored in HTTP-only cookies (for development)
 - Access tokens expire after 1 hour and are automatically refreshed
 - The app polls the Spotify API every 5 seconds for updates
