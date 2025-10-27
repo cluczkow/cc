@@ -18,7 +18,9 @@ export default function NowPlaying() {
 
   const fetchNowPlaying = async () => {
     try {
-      const response = await fetch('/api/now-playing');
+      const response = await fetch('/api/now-playing', {
+        credentials: 'same-origin'
+      });
 
       if (response.status === 401) {
         setError('Not authenticated. Please login again.');
